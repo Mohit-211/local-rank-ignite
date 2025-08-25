@@ -17,25 +17,46 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="/" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Home
               </a>
-              <a href="/about" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/about"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 About
               </a>
-              <a href="/services" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/services"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Services
               </a>
-              <a href="/industries" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/industries"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Industries
               </a>
-              <a href="/blog" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/blog"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Blog
               </a>
-              <a href="/pricing" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/pricing"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Pricing
               </a>
-              <a href="/contact" className="text-foreground hover:text-primary transition-colors">
+              <a
+                href="/contact-us"
+                className="text-foreground hover:text-primary transition-colors"
+              >
                 Contact
               </a>
             </div>

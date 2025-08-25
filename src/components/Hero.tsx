@@ -1,93 +1,208 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Star } from "lucide-react";
-import heroImage from "@/assets/hero-seo.jpg";
+import React from "react";
 
-const Hero = () => {
+const PRIMARY = "#ff3851";
+
+export default function Hero() {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-secondary via-background to-secondary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Hero Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Dominate Google Maps &{" "}
-                <span className="text-gradient">Local Search</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                We help businesses rank in the Google Map Pack and attract more local 
-                customers with proven Local SEO strategies.
-              </p>
+    <section className="relative overflow-hidden">
+      {/* Background image with black gradient overlay */}
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center opacity-90"
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              to right,
+              rgba(0,0,0,0.65) 0%,
+              rgba(0,0,0,0.45) 35%,
+              rgba(0,0,0,0.25) 60%,
+              rgba(0,0,0,0.05) 85%
+            ),
+            url('/phone-local-seo.png')
+          `,
+          backgroundPosition: "center",
+        }}
+        aria-hidden
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Column: Text */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/20 px-3 py-1 text-xs text-white shadow-sm">
+              <span
+                className="h-2 w-2 rounded-full"
+                style={{ background: PRIMARY }}
+              />
+              <span>Live Map Pack Specialists</span>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>500+ Local Businesses</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Star className="w-4 h-4 text-primary" />
-                <span>4.9/5 Client Rating</span>
-              </div>
+            <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight text-white">
+              Dominate Google Maps &{" "}
+              <span style={{ color: PRIMARY }}>Local Search</span>
+            </h1>
+
+            <p className="mt-4 text-lg text-white/90">
+              Get found by customers nearby. We put you in the{" "}
+              <strong className="text-white">Top-3 Map Pack</strong> and turn
+              visibility into calls, visits, and bookings — fast.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2 text-xs">
+              <Chip>300% Avg. Traffic Lift</Chip>
+              <Chip>90% Map Pack Wins</Chip>
+              <Chip>150+ Cities Covered</Chip>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-brand">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold text-white
+                bg-[#ff3851] shadow-md 
+                transition-transform duration-200
+                hover:bg-[#e03248] hover:scale-105 hover:shadow-xl"
+                style={{ background: PRIMARY }}
+              >
                 Get a Free Local SEO Audit
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="lg">
-                View Our Work
-              </Button>
+              </a>
+              <a
+                href="/industries"
+                className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold border border-white/30 text-white hover:bg-white/20"
+              >
+                Industries We Serve
+                {/* See Real Results */}
+              </a>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary">300%</div>
-                <div className="text-sm text-muted-foreground">Avg. Traffic Increase</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary">90%</div>
-                <div className="text-sm text-muted-foreground">Map Pack Rankings</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-primary">150+</div>
-                <div className="text-sm text-muted-foreground">Cities Covered</div>
-              </div>
+            <div className="mt-4 text-xs text-white/70">
+              No lock-in. Transparent reporting. Results in 6–12 weeks for most
+              local niches.
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Right Column: Map Pack mock */}
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-soft">
-              <img
-                src={heroImage}
-                alt="Local SEO Google Maps visualization"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            </div>
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-soft">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm font-medium">Live Rankings</span>
+            <div className="rounded-2xl border border-slate-200 bg-white shadow-xl ring-1 ring-black/5 overflow-hidden">
+              <div className="px-4 py-3 border-b border-slate-100 flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-slate-300" />
+                <div className="h-3 w-3 rounded-full bg-slate-300" />
+                <div className="h-3 w-3 rounded-full bg-slate-300" />
+                <span className="ml-2 text-xs text-slate-500">
+                  maps.google.com
+                </span>
+              </div>
+              <div className="p-4">
+                <SearchBar />
+                <div className="mt-4 grid sm:grid-cols-2 gap-4">
+                  {[1, 2, 3].map((i) => (
+                    <MapCard key={i} primary={PRIMARY} />
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-soft">
-              <div className="text-sm">
-                <div className="font-semibold text-primary">+250%</div>
-                <div className="text-muted-foreground">Local Calls</div>
-              </div>
-            </div>
+
+            <span className="absolute -top-3 -right-3 text-xs bg-white border border-slate-200 shadow rounded-full px-2 py-1">
+              <span className="inline-flex items-center gap-1">
+                <Dot color="#10b981" /> Live Rankings
+              </span>
+            </span>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
-export default Hero;
+/* ————— Atoms ————— */
+function Chip({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur px-3 py-1 text-xs font-medium text-white shadow-sm">
+      {children}
+    </span>
+  );
+}
+
+function SearchBar() {
+  return (
+    <div className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        className="text-slate-400"
+        aria-hidden
+      >
+        <path
+          d="M11 4a7 7 0 105.293 12.293l3.707 3.707 1.414-1.414-3.707-3.707A7 7 0 0011 4zm0 2a5 5 0 110 10A5 5 0 0111 6z"
+          fill="currentColor"
+        />
+      </svg>
+      <input
+        className="flex-1 bg-transparent outline-none text-sm"
+        placeholder="dentist near me"
+        aria-label="Search example"
+      />
+      <button
+        className="text-sm font-semibold rounded-lg px-3 py-1.5 text-white hover:opacity-95"
+        style={{ background: PRIMARY }}
+        aria-label="Run example search"
+      >
+        Search
+      </button>
+    </div>
+  );
+}
+
+function MapCard({ primary }: { primary: string }) {
+  return (
+    <div className="rounded-xl border border-slate-200 p-4 hover:shadow transition bg-white">
+      <div className="flex items-start justify-between">
+        <div>
+          <div className="font-semibold">Dental Care Delhi</div>
+          <div className="mt-1 text-xs text-slate-500">Open • 4.8 (234)</div>
+        </div>
+        <span
+          className="text-xs font-semibold px-2 py-1 rounded-full"
+          style={{ background: "#fff4f5", color: primary }}
+        >
+          Ad
+        </span>
+      </div>
+      <div className="mt-3 flex items-center gap-2 text-xs text-slate-600">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          className="text-slate-400"
+          aria-hidden
+        >
+          <path
+            d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"
+            fill="currentColor"
+          />
+        </svg>
+        1.2 km • South Delhi
+      </div>
+      <div className="mt-3 flex gap-2">
+        <button className="text-xs rounded-lg border border-slate-200 px-3 py-1 hover:bg-slate-50">
+          Call
+        </button>
+        <button className="text-xs rounded-lg border border-slate-200 px-3 py-1 hover:bg-slate-50">
+          Directions
+        </button>
+        <button className="text-xs rounded-lg border border-slate-200 px-3 py-1 hover:bg-slate-50">
+          Website
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Dot({ color = "#10b981" }: { color?: string }) {
+  return (
+    <span
+      aria-hidden
+      className="inline-block h-2 w-2 rounded-full"
+      style={{ background: color }}
+    />
+  );
+}
